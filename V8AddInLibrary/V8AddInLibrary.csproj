@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C168EED5-645E-4642-824D-8D99D07AB931}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>V8.AddIn</RootNamespace>
+    <AssemblyName>V8AddInLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>master.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.7\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddIn\AliasAttribute.cs" />
+    <Compile Include="AddIn\HasDefaultValueAttribute.cs" />
+    <Compile Include="AddIn\IAsyncEvent.cs" />
+    <Compile Include="AddIn\IInitDone.cs" />
+    <Compile Include="AddIn\ILanguageExtender.cs" />
+    <Compile Include="AddIn\InitAddIn.cs" />
+    <Compile Include="AddIn\LanguageExtenderAddIn.cs" />
+    <Compile Include="Connections\ConnectFactory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Connections\ConnectFP_EP06.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Connections\ConnectFP_EP11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Connections\ConnectNetFactory.cs" />
+    <Compile Include="Connections\ConnectNetFP_EP06.cs" />
+    <Compile Include="Connections\ConnectNetFP_EP11.cs" />
+    <Compile Include="Connections\DeafaultPortCom.cs" />
+    <Compile Include="Connections\InterfaceConnectFactory.cs" />
+    <Compile Include="FiscalICS.cs" />
+    <Compile Include="FiscalRegistrator.cs" />
+    <Compile Include="AddIn\V8Context.cs" />
+    <Compile Include="Helper\BitHelper.cs" />
+    <Compile Include="Helper\ByteHelper.cs" />
+    <Compile Include="Helper\Enum.cs" />
+    <Compile Include="Helper\IBitHelper.cs" />
+    <Compile Include="Helper\IByteHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocols\BaseProtocol.cs" />
+    <Compile Include="Protocols\IProtocols.cs" />
+    <Compile Include="Protocols\MyExtensions.cs" />
+    <Compile Include="Protocols\Protocol_EP06.cs" />
+    <Compile Include="Protocols\Protocol_EP11.cs" />
+    <Compile Include="Protocols\Protocol_MG08.cs" />
+    <Compile Include="Protocols\Protocol_OP02.cs" />
+    <Compile Include="Protocols\SingletonProtocol.cs" />
+    <Compile Include="Protocols\Struct.cs" />
+    <Compile Include="ReturnedStruct.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="master.pfx" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
