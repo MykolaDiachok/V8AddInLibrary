@@ -1052,7 +1052,7 @@ namespace CentralLib.Protocols
         public override ReturnedStruct FPDayReport(ushort pass = 0)
         {
             logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            byte[] forsending = new byte[] { 13 };
+            byte[] forsending = new byte[] { 9 };
             forsending = byteHelper.Combine(forsending, BitConverter.GetBytes(pass));
             var rt =  ExchangeWithFP(forsending);            
             //return base.FPDayReport(pass);
