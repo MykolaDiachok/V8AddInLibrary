@@ -37,7 +37,7 @@ namespace CentralLib.Connections
             this.readTimeOut = 1000;
             this.writeTimeOut = 1000;
             this.dataBits = 8;
-            this.waiting = 40;
+            this.waiting = 140;
 
         }
     }

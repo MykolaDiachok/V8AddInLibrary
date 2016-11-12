@@ -38,7 +38,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>master.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>masterkey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -107,6 +107,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="master.pfx" />
+    <None Include="masterkey.snk" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

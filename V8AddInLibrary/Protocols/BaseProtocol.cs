@@ -765,7 +765,7 @@ namespace CentralLib.Protocols
         /// <param name="pass">пароль отчетов</param>
         public virtual ReturnedStruct FPDayReport(ushort pass = 0)
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            //logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[3];
             byte[] passByte = BitConverter.GetBytes(pass);
             forsending[0] = 9;

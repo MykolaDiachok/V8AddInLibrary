@@ -375,7 +375,7 @@ namespace CentralLib.Protocols
 
         public override SumTaxGroupsAndTypesOfPayments FPGetCheckSums()
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+           // logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[] { 43 };//Comment            
             var retSt = ExchangeWithFP(forsending);
             byte[] answer = retSt.bytesReturn;
@@ -389,7 +389,7 @@ namespace CentralLib.Protocols
         /// <returns></returns>
         public override uint FPPrintZeroReceipt()
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+           // logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[] { 13 };//Comment            
             byte length;
             byte[] stringBytes = byteHelper.CodingBytes("Нульовий чек", 27, out length);
@@ -624,7 +624,7 @@ namespace CentralLib.Protocols
         /// <param name="OpenRefundReceipt">= 1 – открытие чека выплаты</param>
         public override ReturnedStruct FPCommentLine(string CommentLine, bool OpenRefundReceipt = false)
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+           // logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[] { 13 };//Comment            
             byte length;
             byte[] stringBytes = byteHelper.CodingBytes(CommentLine, 27, out length);
@@ -647,7 +647,7 @@ namespace CentralLib.Protocols
         /// <returns></returns>
         public override DiscountInfo Discount(FPDiscount typeDiscount, short value, string comment)
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+           // logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             //TODO test discount
             //проблему решить с комментариями!!!!!
 
@@ -1051,7 +1051,7 @@ namespace CentralLib.Protocols
         /// <returns></returns>
         public override ReturnedStruct FPDayReport(ushort pass = 0)
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            //logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[] { 9 };
             forsending = byteHelper.Combine(forsending, BitConverter.GetBytes(pass));
             var rt =  ExchangeWithFP(forsending);            
@@ -1162,7 +1162,7 @@ namespace CentralLib.Protocols
 
         public override ReturnedStruct FPPrintCopy()
         {
-            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            //logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             byte[] forsending = new byte[] { 30 };
             return ExchangeWithFP(forsending);
         }

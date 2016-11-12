@@ -372,7 +372,7 @@ namespace CentralLib.Connections
                             if ((byteRead.Length == 1) && (byteRead[0] == (byte)WorkByte.NAK))
                             {
                               //  logger.Trace("NAK={0}", byteRead[0]);
-                                Thread.Sleep(100);
+                                Thread.Sleep(200);
                                 //networkStream.Flush();
                                 goto Begin;
                             }
@@ -392,7 +392,7 @@ namespace CentralLib.Connections
                             else if ((bufferSize < 10) || (bufferSize == count_wait) || ((count_wait > 0) && (bufferSize / count_wait < 2)))
                             {
                                 twait++;
-                                Thread.Sleep(twait * 400);
+                                Thread.Sleep(twait * 500);
                                 //logger.Trace("bytes read:{0}, sleep:{1}", byteHelper.PrintByteArrayX(byteRead), 400);
                             }
                             if (twait > 10) break;
@@ -408,7 +408,7 @@ namespace CentralLib.Connections
                         }
                         if ((x > 5) && (result.Length < 10))
                         {
-                            Thread.Sleep(100);
+                            Thread.Sleep(200);
                             //logger.Trace("Flush");
                             //networkStream.Flush();
                             //logger.Trace("goto Begin");
@@ -603,7 +603,8 @@ namespace CentralLib.Connections
             {
              //   logger.Error(ex);
                 setError(ex.Message);
-                throw ex;
+                return null;
+               // throw ex;
             }
             //            Func<byte[], Task<byte[]>> function = async (byte[] inByte) =>
             //            {
