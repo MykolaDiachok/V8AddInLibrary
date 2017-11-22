@@ -52,7 +52,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>V8AddInLib.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="V8AddInLib.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\V8AddInLibrary\V8AddInLibrary.csproj">

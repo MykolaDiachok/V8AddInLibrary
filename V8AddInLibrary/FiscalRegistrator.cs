@@ -86,6 +86,42 @@ public class FiscalRegistrator
         }
     }
 
+    [Alias("ПодключитьсяКФРПоСети")]
+    public bool ConnectToFRNetWork(string IpAdress,int IpPort, string TypeProtocol)
+    {
+        try
+        {
+            if (TypeProtocol == "MG-08")
+            {
+                pr = new Protocol_MG08(IpAdress, IpPort, 0);
+            }
+            else if (TypeProtocol == "ЕП-11")
+            {
+                pr = new Protocol_EP11(IpAdress, IpPort,0);
+            }
+            else if (TypeProtocol == "ЕП-06")
+            {
+                pr = new Protocol_EP06(IpAdress, IpPort, 0);
+            }
+            else // если не знаем что то пытаемся определить
+            {
+                pr = SingletonProtocol.Instance(IpAdress, IpPort, 0).GetProtocols();
+            }
+            ByteReserv = pr.ByteReserv;
+            ByteResult = pr.ByteResult;
+            ByteStatus = pr.ByteStatus;
+            statusOperation = pr.statusOperation;
+            IsEnabled = true;
+            return pr.statusOperation;
+        }
+        catch (Exception ex)
+        {
+            sendMessage(ex.Message);
+            IsEnabled = false;
+            return false;
+        }
+    }
+
     [Alias("ОтключитьсяОтФР")]
     public bool DisconnectToFP()
     {
