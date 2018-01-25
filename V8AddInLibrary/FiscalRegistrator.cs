@@ -103,7 +103,11 @@ public class FiscalRegistrator
             {
                 pr = new Protocol_EP06(IpAdress, IpPort, 0);
             }
-            else // если не знаем что то пытаемся определить
+            else if (TypeProtocol == "MZ-11")
+            {
+                pr = new Protocol_MZ11(IpAdress, IpPort, 0);
+            }
+            else // если не знаем, то пытаемся определить
             {
                 pr = SingletonProtocol.Instance(IpAdress, IpPort, 0).GetProtocols();
             }
@@ -508,6 +512,22 @@ public class FiscalRegistrator
             return null;
         }
     }
+
+    [Alias("УстановитьШтрихкод")]
+    public string SetBarCode(string strBarcode)
+    {
+        try
+        {
+
+            return JsonConvert.SerializeObject(pr.SetBarCode(strBarcode));
+        }
+        catch (Exception ex)
+        {
+            sendMessage(ex.Message);
+            return null;
+        }
+    }
+
 
     [Alias("ПечатьКомментарий")]
     public void FPCommentLine(string strJSON)
