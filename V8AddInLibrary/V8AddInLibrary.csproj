@@ -95,6 +95,7 @@
     <Compile Include="Protocols\Protocol_EP06.cs" />
     <Compile Include="Protocols\Protocol_EP11.cs" />
     <Compile Include="Protocols\Protocol_MG08.cs" />
+    <Compile Include="Protocols\Protocol_MZ11.cs" />
     <Compile Include="Protocols\Protocol_OP02.cs" />
     <Compile Include="Protocols\SingletonProtocol.cs" />
     <Compile Include="Protocols\Struct.cs" />

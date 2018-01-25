@@ -781,6 +781,12 @@ namespace CentralLib.Protocols
             throw new NotImplementedException();
         }
 
+        public virtual ReturnedStruct SetBarCode(string inBarcode)
+        {
+            logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            throw new NotImplementedException();
+        }
+
         public virtual SumTaxGroupsAndTypesOfPayments FPGetCheckSums()
         {
             logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);

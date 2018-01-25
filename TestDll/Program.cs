@@ -11,12 +11,14 @@ namespace TestDll
     {
         static void Main(string[] args)
         {
-            BaseProtocol pr = new Protocol_EP11("172.16.2.120",4001,0);
+            BaseProtocol pr = new Protocol_MZ11("172.17.20.42", 4001,0);
             var status = pr.status;
             //var daystatus = pr.dayReport;
             //pr.FPDayReport(0);
             //pr.FPDayClrReport(0);
-            var stSAles = pr.FPSaleEx(10, 0, false, 11900, 1, false, "Батон горчичный нарезаный КХЗ #3", 3);
+            var stSAles = pr.FPSaleEx(10, 0, false, 11900, 1, false, "Батон горчичный нарезаный КХЗ #3", 100000000);
+            var stSAles2 = pr.FPSaleEx(10, 0, false, 11900, 1, false, "Батон горчичный нарезаный КХЗ #4", 100000001);
+            var info = pr.SetBarCode("D3F48623-16B3-4D52-B5F1-2516F368F896");
             //var stSAles1 = pr.FPSaleEx(2, 0, false, 11900, 1, false, "Батон горчичный нарезаный КХЗ #2", 2);
             var stPay = pr.FPPayment(3, 500000, false, true);
             //Батон горчичный нарезаный КХЗ №1

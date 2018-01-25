@@ -34,7 +34,7 @@ namespace CentralLib.Connections
         private bool autoOpen=false, autoClose=false;
 
         private string IpAdress;
-        private int port;
+        //private int port;
         
         private ByteHelper byteHelper;
 

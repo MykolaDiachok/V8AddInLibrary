@@ -223,7 +223,7 @@ namespace CentralLib.Protocols
 
         private DayReport getDayReport()
         {
-            byte[] bytesReturn, bytesReturn0, bytesReturn1, bytesReturn2, bytesReturn3;
+            byte[] bytesReturn, bytesReturn0, bytesReturn1, bytesReturn2;//, bytesReturn3;
 
             {
                 byte[] forsending = new byte[] { 42, 0 };
