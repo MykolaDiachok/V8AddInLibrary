@@ -645,7 +645,7 @@ namespace CentralLib.Protocols
         /// <param name="value">% или сумма скидки/наценки, если процент то 9999(где 99.99% является макс значением)</param>
         /// <param name="comment">пояснительная строка</param>
         /// <returns></returns>
-        public override DiscountInfo Discount(FPDiscount typeDiscount, short value, string comment)
+        public override DiscountInfo Discount(FPDiscount typeDiscount, int value, string comment)
         {
            // logger.Trace(this.GetType().FullName + "." + System.Reflection.MethodBase.GetCurrentMethod().Name);
             //TODO test discount

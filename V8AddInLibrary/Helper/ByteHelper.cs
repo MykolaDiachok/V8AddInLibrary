@@ -238,6 +238,8 @@ namespace CentralLib.Helper
                 InputString = "";
             Encoding cp866 = Encoding.GetEncoding(866);
             InputString = InputString.Replace("№", "N");
+            InputString = InputString.Replace("і", "i");
+            InputString = InputString.Replace("І", "I");
             string tempStr = InputString.Substring(0, Math.Min(MaxVal, InputString.Length));
             //length = (byte)tempStr.Length;
 

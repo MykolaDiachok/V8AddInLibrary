@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CentralLib.Connections;
 using CentralLib;
+using CentralLib.Helper;
 
 namespace CentralLib.Protocols
 {
@@ -35,5 +36,7 @@ namespace CentralLib.Protocols
             forsending = byteHelper.Combine(forsending, stringBytes);
             return ExchangeWithFP(forsending);
         }
+
+       
     }
 }
